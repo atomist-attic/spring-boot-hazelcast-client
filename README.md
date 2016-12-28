@@ -1,1 +1,1 @@
-# spring-boot-hazelcast-client
+# Atomist 'spring-boot-hazelcast-client'
