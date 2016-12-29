@@ -1,3 +1,6 @@
 # $project_name
 
 $description
+
+---
+Created on {{creation_date}} by Atomist.
