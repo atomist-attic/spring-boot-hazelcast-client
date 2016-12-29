@@ -3,5 +3,5 @@ artifact: spring-boot-hazelcast-client
 version: "0.1.0"
 requires: "[0.7.0,1.0.0)"
 dependencies:
-- "atomist-rugs:common-editors:0.4.0"
+- "atomist-rugs:common-editors:0.3.0"
 extensions:
