@@ -1,7 +1,5 @@
 # -------------------------------------------------------------------
 # NewSpringBootHazelcastClient.rug - spring-boot-hazelcast-client
-# History:
-# 0.1.0 - Dec 2016 - Initial
 # -------------------------------------------------------------------
 
 # ------
@@ -19,6 +17,7 @@ editor NewSpringBootHazelcastClient
 uses atomist-rugs.common-editors.ClassRenamer
 uses atomist-rugs.common-editors.PackageMove
 uses atomist-rugs.common-editors.PomParameterizer
+uses atomist-rugs.common-editors.RemoveApacheSoftwareLicense20
 
 @displayName "Project Name"
 @description "name of your new project"
@@ -55,7 +54,7 @@ param group_id: @group_id
 @description "initial version of the project, e.g., 1.2.3-SNAPSHOT"
 @validInput "a valid semantic version, http://semver.org"
 @optional
-@default "0.0.1-SNAPSHOT"
+@default "0.1.0-SNAPSHOT"
 param version: @semantic_version
 
 @displayName "Package"
@@ -69,11 +68,11 @@ param new_package: @java_package
 @description "name for the main class"
 @validInput "a valid Java class name, which contains only alphanumeric characters, $ and _ and does not start with a number"
 @optional
-@default "My"
+@default "MyClient"
 param main_class_name: @java_class
 
 # Pattern to replace in old class name.
-let old_class = "HazelcastClient"
+let old_class = "MyHazelcastClient"
 
 # Root package of the old file
 let old_package = "com.atomist.hazelcast"
@@ -86,6 +85,7 @@ ClassRenamer new_class = main_class_name
 PackageMove new_package = new_package
 # Maven
 PomParameterizer name = project_name
+RemoveApacheSoftwareLicense20
 
 # ------
 # END : NewSpringBootHazelcastClient - spring-boot-hazelcast-client

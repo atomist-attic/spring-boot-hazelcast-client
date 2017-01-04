@@ -19,8 +19,8 @@ import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {HazelcastClientApplication.class})
-public class HazelcastClientApplicationTests {
+@SpringBootTest(classes = {MyHazelcastClientApplication.class})
+public class MyHazelcastClientApplicationTests {
 
 	private static HazelcastInstance hazelcastServer;
 

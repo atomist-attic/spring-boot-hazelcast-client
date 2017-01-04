@@ -1,0 +1,82 @@
+scenario NewSpringBootHazelcastClient should pass smoke test
+
+let project_name = "hazelnut"
+let artifact_id = "foo"
+let new_package = "com.foo.bar"
+let version = "0.0.1"
+let main_class_name = "MyCaster"
+let group_id = "somegroup"
+
+let pom_path = "pom.xml"
+let readme_path = "README.md"
+let description = "Hazelcaster, Stratocaster, Telecaster"
+let hazelcast_cfg = "HazelcastConfiguration.java"
+
+given
+  ArchiveRoot
+
+when
+  NewSpringBootHazelcastClient
+
+then
+  fileExists { "src/main/java/com/foo/bar/" + main_class_name + "Application.java" }
+    and fileExists { "src/main/java/com/foo/bar/" + hazelcast_cfg }
+    and fileExists { "src/test/java/com/foo/bar/" + main_class_name + "ApplicationTests.java" }
+    and fileContains pom_path artifact_id
+    and fileContains pom_path version
+    and fileContains readme_path project_name
+    and fileContains readme_path description
+    and { !result.fileExists("LICENSE") }
+
+
+scenario NewSpringBootHazelcastClient without description should pass smoke test
+
+let project_name = "hazelnut"
+let artifact_id = "foo"
+let new_package = "com.foo.bar"
+let version = "0.0.1"
+let main_class_name = "MyCaster"
+let props_file = "src/main/resources/application.properties"
+let group_id = "somegroup"
+
+let pom_path = "pom.xml"
+let readme_path = "README.md"
+let hazelcast_cfg = "HazelcastConfiguration.java"
+
+given
+  ArchiveRoot
+
+when
+  NewSpringBootHazelcastClient
+
+then
+  fileExists { "src/main/java/com/foo/bar/" + main_class_name + "Application.java" }
+    and fileExists { "src/main/java/com/foo/bar/" + hazelcast_cfg }
+    and fileExists { "src/test/java/com/foo/bar/" + main_class_name + "ApplicationTests.java" }
+    and fileContains pom_path artifact_id
+    and fileContains pom_path version
+    and fileContains readme_path project_name
+    and { !result.fileExists("LICENSE") }
+
+
+scenario NewSpringBootHazelcastClient should fail when given bad parameters
+
+let project_name = "hazelnut"
+let artifact_id = "foo"
+let new_package = "com.foo.bar"
+let version = "not.valid.version"
+let main_class_name = "MyCaster"
+let props_file = "src/main/resources/application.properties"
+let group_id = "somegroup"
+
+let pom_path = "pom.xml"
+let readme_path = "README.md"
+
+given
+  ArchiveRoot
+
+when
+  NewSpringBootHazelcastClient
+
+then
+  InvalidParameters
