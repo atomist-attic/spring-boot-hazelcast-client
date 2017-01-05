@@ -99,8 +99,8 @@ editor SwitchReadmes
 
 let template = "README.vm"
 
-with project
-        do merge template to "README.md"
+with Project
+  do merge template to "README.md"
 # ------
 # END : SwitchReadmes - spring-boot-hazelcast-client
 # ------
@@ -111,7 +111,7 @@ with project
 @description "adds a creation date to the README.md"
 editor AddCreationDateToReadme
 
-with file when path = "README.md"
+with File when path = "README.md"
   do replace "{{creation_date}}" { new Date().toISOString().split('T')[0] }
 # ------
 # END : AddCreationDateToReadme - spring-boot-hazelcast-client
