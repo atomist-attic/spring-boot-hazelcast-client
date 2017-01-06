@@ -18,6 +18,8 @@ uses atomist-rugs.common-editors.ClassRenamer
 uses atomist-rugs.common-editors.PackageMove
 uses atomist-rugs.common-editors.PomParameterizer
 uses atomist-rugs.common-editors.RemoveApacheSoftwareLicense20
+uses atomist-rugs.common-editors.RemoveChangeLog
+uses atomist-rugs.common-editors.RemoveCodeOfConduct
 
 @displayName "Project Name"
 @description "name of your new project"
@@ -86,6 +88,8 @@ PackageMove new_package = new_package
 # Maven
 PomParameterizer name = project_name
 RemoveApacheSoftwareLicense20
+RemoveChangeLog
+RemoveCodeOfConduct
 
 # ------
 # END : NewSpringBootHazelcastClient - spring-boot-hazelcast-client

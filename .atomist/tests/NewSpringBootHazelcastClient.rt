@@ -27,6 +27,8 @@ then
     and fileContains readme_path project_name
     and fileContains readme_path description
     and { !result.fileExists("LICENSE") }
+    and { !result.fileExists("CHANGELOG.md") }
+    and { !result.fileExists("CODE_OF_CONDUCT.md") }
 
 
 scenario NewSpringBootHazelcastClient without description should pass smoke test
@@ -57,6 +59,8 @@ then
     and fileContains pom_path version
     and fileContains readme_path project_name
     and { !result.fileExists("LICENSE") }
+    and { !result.fileExists("CHANGELOG.md") }
+    and { !result.fileExists("CODE_OF_CONDUCT.md") }
 
 
 scenario NewSpringBootHazelcastClient should fail when given bad parameters
