@@ -25,6 +25,8 @@ Boot][boot] [Hazelcast][hazelcast] client project.
 [boot]: https://projects.spring.io/spring-boot/
 [hazelcast]: https://hazelcast.org/
 
+[<img src="http://images.atomist.com/button/create-project.png" width="267" alt="Create a project with Atomist"/>](https://api.atomist.com/v1/projects/generators/9b8a5cf3-3b8c-47cc-93b3-8ecd58562c99)
+
 #### Prerequisites
 
 There are no prerequisites to running this generator.
